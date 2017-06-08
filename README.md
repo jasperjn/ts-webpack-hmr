@@ -11,13 +11,17 @@ to show how to use it.
 
 `npm run build-dev-server`
 
-Open http://localhost:8080/index.html, open the browser console to see what's happening, make an update to a.ts, save the file and start smiling. 
+Open http://localhost:8080/index.html, open the browser console to see what's happening, make an update to a.ts, save the file and start smiling.
 There's no reloading necessary to update the contents of the red div. It shows the results of the updated iAmReloadable function from a.ts.
 The module a.ts is reloaded, main.ts is notified about the update. The handler then calls iAmReloadable to update the div.
 
+`npm run browsey-sync`
+
+Open http://localhost:3000/index.html. An browsery-sync HMR implements with webpack-dev-middleware and webpack-hot-midddleware.
+
 ## Here are the important steps to make HMR with typescript work:
 
-* Use import and require statements correctly. 
+* Use import and require statements correctly.
 The module must be imported, but not used as an expression.
 
 `import * as mod_a from "./a";`

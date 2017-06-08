@@ -2,7 +2,12 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-    entry: './src/main.ts',
+    entry: {
+        main: [
+            'webpack-hot-middleware/client?reload=true',
+            './src/main.ts'
+        ]
+    },
     module: {
         rules: [{
             test: /\.ts$/,
@@ -17,8 +22,8 @@ module.exports = {
         filename: '[name].js',
         publicPath: '/dist'
     },
-    devServer: {
-        contentBase: __dirname
-    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin()
+    ],
     devtool: 'source-map'
 };
